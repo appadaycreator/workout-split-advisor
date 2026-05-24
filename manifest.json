@@ -1,0 +1,8 @@
+{
+  "name": "Workout Split Advisor",
+  "short_name": "workout-spli",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1"
+}
