@@ -11,21 +11,21 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#7c3aed" />
-    <title>筋トレ分割法診断【無料】無料診断・アドバイス</title>
-    <meta name="description" content="目的（筋肥大・減量・維持）・週の運動頻度・経験から最適な筋トレ分割法とメニューを診断。登録不要・完全無料でご利用いただけます。">
+    <title>筋トレ分割法診断【無料】あなたに最適な分割法・週間メニューを提案</title>
+    <meta name="description" content="目的・週の運動頻度・経験から最適な筋トレ分割法と具体的な週間メニューを1分で診断。全身法・上下分割・PPL分割など5パターンから提案。登録不要・完全無料。">
     <link rel="canonical" href="https://appadaycreator.com/workout-split-advisor/">
     <link rel="manifest" href="/workout-split-advisor/manifest.json">
-    <meta property="og:title" content="筋トレ分割法診断【無料】無料診断・アドバイス">
-    <meta property="og:description" content="目的（筋肥大・減量・維持）・週の運動頻度・経験から最適な筋トレ分割法とメニューを診断。登録不要・完全無料でご利用いただけます。">
+    <meta property="og:title" content="筋トレ分割法診断【無料】あなたに最適な分割法・週間メニューを提案">
+    <meta property="og:description" content="目的・週の運動頻度・経験から最適な筋トレ分割法と具体的な週間メニューを1分で診断。全身法・上下分割・PPL分割など5パターンから提案。登録不要・完全無料。">
     <meta property="og:url" content="https://appadaycreator.com/workout-split-advisor/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:image" content="https://appadaycreator.com/assets/ogp-default.png">
 <meta property="og:site_name" content="appadaycreator" />
 <meta name="twitter:image" content="https://appadaycreator.com/assets/ogp-default.png" />
-<meta name="twitter:description" content="目的（筋肥大・減量・維持）・週の運動頻度・経験から最適な筋トレ分割法とメニューを診断。登録不要・完全無料でご利用いただけます。" />
+<meta name="twitter:description" content="目的・週の運動頻度・経験から最適な筋トレ分割法と具体的な週間メニューを1分で診断。全身法・上下分割・PPL分割など5パターンから提案。登録不要・完全無料。" />
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="筋トレ分割法診断【無料】無料診断・アドバイス" />
+    <meta name="twitter:title" content="筋トレ分割法診断【無料】あなたに最適な分割法・週間メニューを提案" />
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,6 +69,26 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             .result-value { font-size: 28px; }
         }
         /* ── サービス固有CSS ── */
+        .quiz-opt { width:100%; padding:12px 14px; margin-bottom:8px; border:2px solid #e5e7eb; border-radius:10px; font-size:14px; cursor:pointer; background:#fff; text-align:left; transition:border-color .15s, background .15s, transform .1s; }
+        .quiz-opt:hover { border-color:#7c3aed; background:#f5f3ff; }
+        .quiz-opt:active { transform:scale(0.99); background:#ede9fe; }
+        .quiz-opt:focus-visible { outline:3px solid #7c3aed; outline-offset:2px; }
+        .quiz-opt.selected { border-color:#16a34a; background:#f0fdf4; color:#15803d; font-weight:600; }
+        .btn-back { background:none; border:1.5px solid #e5e7eb; color:#666; padding:8px 16px; border-radius:8px; font-size:13px; cursor:pointer; margin-bottom:12px; transition:border-color .15s; min-height:36px; }
+        .btn-back:hover { border-color:#7c3aed; color:#7c3aed; }
+        .btn-back:focus-visible { outline:3px solid #7c3aed; outline-offset:2px; }
+        .schedule-table { width:100%; border-collapse:collapse; font-size:13px; margin-top:12px; }
+        .schedule-table th { background:#7c3aed; color:white; padding:8px 10px; text-align:left; font-weight:600; }
+        .schedule-table td { padding:7px 10px; border-bottom:1px solid #f1f5f9; color:#444; vertical-align:top; }
+        .schedule-table tr:last-child td { border-bottom:none; }
+        .schedule-table tr:nth-child(even) td { background:#fafafa; }
+        .rest-day { color:#94a3b8; font-style:italic; }
+        .result-tag { display:inline-block; background:#7c3aed20; color:#7c3aed; padding:3px 10px; border-radius:12px; font-size:11px; font-weight:600; margin-right:4px; margin-bottom:4px; }
+        .goal-tag { background:#fef3c7; color:#92400e; }
+        .share-btn { display:inline-flex; align-items:center; gap:5px; padding:10px 18px; border-radius:8px; font-size:13px; text-decoration:none; font-weight:600; min-height:44px; transition:opacity .15s; }
+        .share-btn:hover { opacity:0.85; }
+        .share-x { background:#000; color:white; }
+        .share-line { background:#00B900; color:white; }
 
     
 @media print{
@@ -90,7 +110,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     <header class="site-header" role="banner">
         <div class="emoji" aria-hidden="true">💪</div>
         <h1>筋トレ分割法診断</h1>
-        <p>目的（筋肥大・減量・維持）・週の運動頻度・経験から最適な筋トレ分割法とメニュ...</p>
+        <p>目的・頻度・経験から最適な分割法と<br>具体的な週間メニューを1分で診断</p>
     </header>
 
     <main id="main-content" class="container" role="main" aria-label="筋トレ分割法診断のメインコンテンツ">
@@ -99,25 +119,34 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
         <div class="card" id="quiz-start">
           <h2 style="font-size:18px;font-weight:700;margin-bottom:12px;">💪 筋トレ分割法診断</h2>
-          <p style="color:#666;font-size:14px;margin-bottom:8px;">目的（筋肥大・減量・維持）・週の運動頻度・経験から最適な筋トレ分割法とメニュ...</p>
-          <ul style="font-size:13px;color:#94a3b8;margin:0 0 16px 16px;"><li>質問数：5問</li><li>所要時間：約1分</li></ul>
+          <p style="color:#666;font-size:14px;margin-bottom:8px;">目的・週の運動頻度・経験レベルから、あなたに最適な分割法と<strong>具体的な週間トレーニングメニュー</strong>を提案します。</p>
+          <ul style="font-size:13px;color:#94a3b8;margin:0 0 16px 16px;"><li>質問数：5問</li><li>所要時間：約1分</li><li>登録不要・完全無料</li></ul>
           <button class="btn" onclick="startQuiz()">診断スタート →</button>
         </div>
         <div id="quiz-area" style="display:none;">
-          <div style="font-size:12px;color:#999;margin-bottom:8px;">
-            質問 <span id="q-num">1</span> / <span id="q-total">5</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <button id="btn-back" class="btn-back" onclick="goBack()" style="display:none;">← 前へ</button>
+            <div style="font-size:12px;color:#999;margin-left:auto;">
+              質問 <span id="q-num">1</span> / <span id="q-total">5</span>
+            </div>
           </div>
           <div id="q-progress" style="height:4px;background:#e5e7eb;border-radius:2px;margin-bottom:16px;">
-            <div id="q-bar" style="height:100%;background:#7c3aed;border-radius:2px;transition:width .3s;width:20%;"></div>
+            <div id="q-bar" style="height:100%;background:#7c3aed;border-radius:2px;transition:width .3s;width:0%;"></div>
           </div>
           <p id="q-text" style="font-size:16px;font-weight:600;margin-bottom:16px;"></p>
-          <div id="q-options" class="space-y-2"></div>
+          <div id="q-options"></div>
         </div>
         <div class="result" id="result">
           <div class="card">
-            <h3 id="r-title" style="font-size:18px;font-weight:700;margin-bottom:8px;color:#7c3aed;"></h3>
+            <div id="r-tags" style="margin-bottom:10px;"></div>
+            <h3 id="r-title" style="font-size:20px;font-weight:700;margin-bottom:8px;color:#7c3aed;"></h3>
             <p id="r-desc" style="color:#444;font-size:14px;line-height:1.7;"></p>
-            <button class="btn" style="margin-top:16px;" onclick="location.reload()">もう一度診断</button>
+            <div id="r-schedule" style="margin-top:16px;"></div>
+            <div id="r-share" style="margin-top:16px;text-align:center;">
+              <p style="font-size:12px;color:#888;margin-bottom:8px;">この結果をシェアする</p>
+              <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;"></div>
+            </div>
+            <button class="btn" style="margin-top:16px;" onclick="resetQuiz()">もう一度診断する</button>
           </div>
         </div>
 
@@ -188,7 +217,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         </div>
     </main>
 
-    <footer style="text-align:center;padding:20px;color:white;font-size:12px;opacity:0.75;margin-top:8px;">
+    <footer style="text-align:center;padding:20px;color:white;font-size:12px;background:#374151;margin-top:8px;">
         <p><a href="https://appadaycreator.github.io/" style="color:white;">AppADayCreator</a>
         | <a href="privacy-policy.html" style="color:white;">プライバシーポリシー</a>
         | <a href="terms.html" style="color:white;">利用規約</a>
@@ -198,43 +227,208 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     </footer>
 
     <script>
-    // ★ここだけ実装（約15行）★
     const QUESTIONS = [
-      { text:'Q1. 筋トレの目的は？', opts:['筋肉を大きくしたい','体を引き締めたい','健康維持','パフォーマンス向上'] },
+      { text:'Q1. 筋トレの目的は？', opts:['筋肉を大きくしたい（筋肥大）','体を引き締めたい（減量）','健康維持・体力づくり','競技パフォーマンス向上'] },
       { text:'Q2. 週に運動できる日数は？', opts:['週2日','週3日','週4日','週5日以上'] },
       { text:'Q3. 1回のトレーニング時間は？', opts:['30分以内','30〜60分','60〜90分','90分以上'] },
       { text:'Q4. 経験レベルは？', opts:['初心者（〜6ヶ月）','中級者（6ヶ月〜2年）','上級者（2年以上）','元アスリート'] },
-      { text:'Q5. 重視することは？', opts:['全身バランス','上半身を重点的に','下半身・脚を重点的に','体幹・コア'] },
+      { text:'Q5. 特に重視したい部位は？', opts:['全身バランスよく','上半身（胸・肩・腕・背中）','下半身・脚を重点的に','体幹・コア強化'] },
     ];
-    function getResult(answers) {
-      const days = answers[1].idx; // 0=週2, 1=週3, 2=週4, 3=週5以上
-      const level = answers[3].idx; // 0=初心者, 1=中級, 2=上級, 3=元アスリート
-      if (level === 0 || days === 0) return { title:'🔰 全身法（週2〜3日）', desc:'初心者・時間がない人向けの基本スタイル。毎回スクワット・デッドリフト・ベンチプレスなど複合種目で全身を鍛えます。少ない頻度でも確実に成長できる効率的な方法です。' };
-      if (days <= 1 || level === 1) return { title:'✂️ 上下分割（週3〜4日）', desc:'中級者向けの2分割法。上半身日（胸・肩・腕・背中）と下半身日（脚・臀部・腹）に分けることで各部位の回復時間を確保しながら効率アップできます。' };
+
+    // 目的テキスト
+    const GOALS = ['筋肥大','減量','健康維持','競技向上'];
+    const FOCUS = ['全身バランス','上半身重視','下半身重視','体幹重視'];
+
+    // 週間スケジュールデータ
+    const SCHEDULES = {
+      fullbody: {
+        label:'全身法',
+        rows:[
+          ['月','全身','スクワット 3×10、ベンチプレス 3×10、ラットプルダウン 3×10'],
+          ['水','全身','デッドリフト 3×8、ショルダープレス 3×10、ルーマニアンデッドリフト 3×10'],
+          ['金','全身','レッグプレス 3×12、インクラインダンベルプレス 3×10、シーテッドロウ 3×10'],
+          ['火・木・土・日','休息','軽いウォーキングや静的ストレッチ'],
+        ]
+      },
+      upperlower: {
+        label:'上下分割',
+        rows:[
+          ['月','上半身','ベンチプレス 4×8、ラットプルダウン 4×10、ショルダープレス 3×10'],
+          ['火','下半身','スクワット 4×8、ルーマニアンデッドリフト 4×10、レッグカール 3×12'],
+          ['木','上半身','インクラインダンベルプレス 4×10、シーテッドロウ 4×10、サイドレイズ 3×15'],
+          ['金','下半身','デッドリフト 4×6、レッグプレス 4×10、カーフレイズ 4×15'],
+          ['水・土・日','休息','アクティブリカバリーまたは完全休養'],
+        ]
+      },
+      ppl: {
+        label:'プッシュ／プル／脚（PPL）分割',
+        rows:[
+          ['月','プッシュ（押す）','ベンチプレス 4×8、ショルダープレス 4×10、トライセプスプッシュダウン 3×12'],
+          ['火','プル（引く）','デッドリフト 4×6、ラットプルダウン 4×10、バーベルロウ 4×10'],
+          ['水','脚','スクワット 4×8、レッグプレス 4×10、レッグカール 3×12、カーフレイズ 4×15'],
+          ['木','プッシュ（押す）','インクラインダンベルプレス 4×10、サイドレイズ 3×15、ディップス 3×10'],
+          ['金','プル（引く）','チンニング 4×8、シーテッドロウ 4×10、フェイスプル 3×15'],
+          ['土','脚','ルーマニアンデッドリフト 4×10、レッグエクステンション 3×12、ヒップスラスト 4×10'],
+          ['日','休息','完全休養またはストレッチ'],
+        ]
+      },
+      split4: {
+        label:'4分割法',
+        rows:[
+          ['月','胸','ベンチプレス 4×8、インクラインダンベルプレス 4×10、ペックフライ 3×12'],
+          ['火','背中','デッドリフト 4×6、チンニング 4×8、シーテッドロウ 4×10'],
+          ['木','肩・腕','ショルダープレス 4×10、サイドレイズ 3×15、バイセプスカール 3×12、トライセプスプレスダウン 3×12'],
+          ['金','脚','スクワット 4×8、レッグプレス 4×10、ルーマニアンデッドリフト 4×10、カーフレイズ 4×15'],
+          ['水・土・日','休息','アクティブリカバリーまたは完全休養'],
+        ]
+      },
+      split5: {
+        label:'5〜6分割法',
+        rows:[
+          ['月','胸','ベンチプレス 5×5〜8、インクライン 4×10、ダンベルフライ 3×12、ディップス 3×10'],
+          ['火','背中','デッドリフト 5×5、チンニング 4×8、バーベルロウ 4×8、ケーブルロウ 3×12'],
+          ['水','脚','スクワット 5×5〜8、レッグプレス 4×10、レッグカール 4×10、カーフレイズ 5×15'],
+          ['木','肩','ショルダープレス 4×8、サイドレイズ 4×15、フロントレイズ 3×12、フェイスプル 3×15'],
+          ['金','腕・腹','バイセプスカール 4×10、ハンマーカール 3×12、トライセプスプレスダウン 4×12、プランク 3×60秒'],
+          ['土','弱点部位または脚２','弱点部位の補強またはスクワット系を再度'],
+          ['日','休息','完全休養'],
+        ]
+      },
+    };
+
+    function getSplitKey(days, level) {
+      // days: 0=週2, 1=週3, 2=週4, 3=週5以上 / level: 0=初, 1=中, 2=上, 3=元アスリート
+      if (level === 0 || days === 0) return 'fullbody';
+      if (days === 1 || level === 1) return 'upperlower';
       if (level >= 2 && days >= 2) {
-        if (days === 3) return { title:'🔥 プッシュ/プル/脚分割（週4〜5日）', desc:'中上級者向けの3分割法。「押す筋肉（胸・肩・上腕三頭筋）」「引く筋肉（背中・上腕二頭筋）」「脚」の3グループに分けて集中的に追い込みます。' };
-        if (level === 3 || days >= 3) return { title:'🏆 5〜6分割法（週5〜6日）', desc:'上級〜競技者向けの細分化された分割法。胸・背中・脚・肩・腕をそれぞれ独立した日に徹底的に追い込みます。各部位に十分な刺激と回復期間を与えられます。' };
+        if (days === 2) return 'ppl';
+        if (level === 3 || days === 3) return 'split5';
       }
-      return { title:'⚡ 4分割法（週4〜5日）', desc:'上級者向けの4分割。胸の日・背中の日・肩の日・脚の日と部位を絞って集中強化します。各部位を週1〜2回しっかり追い込め、着実に筋量を増やせます。' };
+      return 'split4';
     }
-    // ★以下変更不要★
-    const BTN='#7c3aed'; let cur=0; const ans=[];
-    document.addEventListener('DOMContentLoaded',()=>{ document.getElementById('q-total').textContent=QUESTIONS.length; });
-    function startQuiz(){ cur=0;ans.length=0; document.getElementById('quiz-start').style.display='none'; document.getElementById('quiz-area').style.display='block'; document.getElementById('result').classList.remove('show'); renderQ(); }
-    function renderQ(){
-      const q=QUESTIONS[cur];
-      document.getElementById('q-num').textContent=cur+1;
-      document.getElementById('q-bar').style.width=((cur+1)/QUESTIONS.length*100)+'%';
-      document.getElementById('q-text').textContent=q.text;
-      document.getElementById('q-options').innerHTML=q.opts.map((o,i)=>`<button onclick="answer(${i})" style="width:100%;padding:12px;margin-bottom:8px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;background:#fff;text-align:left;">${o}</button>`).join('');
+
+    function buildDesc(splitKey, goal, focus) {
+      const goalLabel = GOALS[goal] || '';
+      const focusLabel = FOCUS[focus] || '';
+      const base = {
+        fullbody: '全身法は初心者・週2〜3日の方に最適なスタイルです。毎回スクワット・ベンチプレス・デッドリフトなど複合種目で全身を鍛え、少ない頻度でも着実に成長できます。',
+        upperlower: '上下分割は中級者向けの2分割法です。上半身の日と下半身の日を交互に設け、各部位の回復時間を確保しながら週2回ずつ追い込めます。',
+        ppl: 'プッシュ／プル／脚（PPL）分割は中上級者向けの3分割法です。「押す筋肉」「引く筋肉」「脚」の3グループに集中し、高ボリュームで効率よく追い込めます。',
+        split4: '4分割法は上級者向けです。胸・背中・肩腕・脚の4日に分け、各部位を週1〜2回しっかり追い込みながら十分な回復時間を確保します。',
+        split5: '5〜6分割法は上級者〜元アスリート向けの高強度プログラムです。各部位を独立した日に徹底的に追い込み、最大限の筋肥大・パフォーマンス向上を目指します。',
+      }[splitKey];
+      const goalMsg = {
+        0: `筋肥大が目的のため、重量と回数のバランスを重視し、段階的に負荷を増やしていきましょう（プログレッシブオーバーロード）。`,
+        1: `減量が目的のため、タンパク質摂取を意識しながら筋量を維持しつつ、有酸素運動も組み合わせると効果的です。`,
+        2: `健康維持が目的のため、無理なく継続できる強度・頻度を守り、怪我を防ぐフォームの正確さを優先しましょう。`,
+        3: `競技パフォーマンス向上が目的のため、競技特性に合わせた動作パターンを意識したトレーニング選択が重要です。`,
+      }[goal] || '';
+      const focusMsg = {
+        1: `上半身を重視する場合、胸・肩・背中の種目数を1〜2種目増やし、腕の日を独立させることも検討してください。`,
+        2: `下半身・脚を重視する場合、スクワット系とヒンジ系（デッドリフト）を毎週欠かさず実施し、脚の日のボリュームを増やしましょう。`,
+        3: `体幹・コア強化のため、プランク・ロールアウト・ハンギングレッグレイズを各セッションの最後に取り入れましょう。`,
+      }[focus] || '';
+      return `${base} ${goalMsg}${focusMsg ? ' ' + focusMsg : ''}`.trim();
     }
-    function answer(idx){ ans.push({idx}); cur++; if(cur>=QUESTIONS.length) showResult(); else renderQ(); }
-    function showResult(){
-      document.getElementById('quiz-area').style.display='none';
-      const r=getResult(ans);
-      document.getElementById('r-title').textContent=r.title;
-      document.getElementById('r-desc').textContent=r.desc;
+
+    function buildScheduleHTML(splitKey) {
+      const s = SCHEDULES[splitKey];
+      if (!s) return '';
+      const rows = s.rows.map(([day, part, exercises]) =>
+        `<tr><td style="font-weight:600;white-space:nowrap;">${day}</td><td class="${part.includes('休息') ? 'rest-day' : ''}" style="white-space:nowrap;">${part}</td><td>${exercises}</td></tr>`
+      ).join('');
+      return `<h4 style="font-size:14px;font-weight:700;color:#374151;margin-bottom:8px;">📅 週間スケジュール例（${s.label}）</h4>
+<div style="overflow-x:auto;"><table class="schedule-table">
+<thead><tr><th>曜日</th><th>部位</th><th>代表種目</th></tr></thead>
+<tbody>${rows}</tbody>
+</table></div>
+<p style="font-size:11px;color:#94a3b8;margin-top:6px;">※ セット数・重量は経験に合わせて調整してください。</p>`;
+    }
+
+    function buildShareHTML(titleText) {
+      const encoded = encodeURIComponent(`私の最適な筋トレ分割法は「${titleText}」でした！ #筋トレ分割法診断`);
+      const url = encodeURIComponent('https://appadaycreator.com/workout-split-advisor/');
+      return `<a href="https://twitter.com/intent/tweet?text=${encoded}&url=${url}" target="_blank" rel="noopener" class="share-btn share-x" aria-label="結果をXでシェア">𝕏 シェア</a>
+<a href="https://line.me/R/msg/text/?${encoded}%0A${url}" target="_blank" rel="noopener" class="share-btn share-line" aria-label="結果をLINEでシェア">LINE</a>`;
+    }
+
+    let cur = 0;
+    const ans = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('q-total').textContent = QUESTIONS.length;
+    });
+
+    function startQuiz() {
+      cur = 0;
+      ans.length = 0;
+      document.getElementById('quiz-start').style.display = 'none';
+      document.getElementById('quiz-area').style.display = 'block';
+      document.getElementById('result').classList.remove('show');
+      renderQ();
+    }
+
+    function resetQuiz() {
+      document.getElementById('result').classList.remove('show');
+      document.getElementById('quiz-start').style.display = 'block';
+    }
+
+    function renderQ() {
+      const q = QUESTIONS[cur];
+      document.getElementById('q-num').textContent = cur + 1;
+      document.getElementById('q-bar').style.width = (cur / QUESTIONS.length * 100) + '%';
+      document.getElementById('q-text').textContent = q.text;
+      document.getElementById('btn-back').style.display = cur > 0 ? '' : 'none';
+      document.getElementById('q-options').innerHTML = q.opts.map(
+        (o, i) => `<button class="quiz-opt" onclick="answer(this,${i})">${o}</button>`
+      ).join('');
+    }
+
+    function answer(btn, idx) {
+      btn.classList.add('selected');
+      // 各ボタン無効化（二重クリック防止）
+      document.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
+      setTimeout(() => {
+        ans[cur] = { idx };
+        cur++;
+        if (cur >= QUESTIONS.length) showResult();
+        else renderQ();
+      }, 200);
+    }
+
+    function goBack() {
+      if (cur > 0) {
+        cur--;
+        ans.splice(cur, 1);
+        renderQ();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quiz-area').style.display = 'none';
+      const goal = ans[0].idx;
+      const days = ans[1].idx;
+      const level = ans[3].idx;
+      const focus = ans[4].idx;
+      const splitKey = getSplitKey(days, level);
+      const s = SCHEDULES[splitKey];
+      const titleText = {
+        fullbody: '全身法（週2〜3日）',
+        upperlower: '上下分割（週3〜4日）',
+        ppl: 'プッシュ／プル／脚分割（週4〜5日）',
+        split4: '4分割法（週4〜5日）',
+        split5: '5〜6分割法（週5〜6日）',
+      }[splitKey];
+      const emoji = { fullbody:'🔰', upperlower:'✂️', ppl:'🔥', split4:'⚡', split5:'🏆' }[splitKey];
+
+      document.getElementById('r-tags').innerHTML =
+        `<span class="result-tag goal-tag">${GOALS[goal]}</span><span class="result-tag">${FOCUS[focus]}</span><span class="result-tag">${['週2日','週3日','週4日','週5日以上'][days]}</span>`;
+      document.getElementById('r-title').textContent = emoji + ' ' + titleText;
+      document.getElementById('r-desc').textContent = buildDesc(splitKey, goal, focus);
+      document.getElementById('r-schedule').innerHTML = buildScheduleHTML(splitKey);
+      document.getElementById('r-share').querySelector('div').innerHTML = buildShareHTML(titleText);
       document.getElementById('result').classList.add('show');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     </script>
 </body>
