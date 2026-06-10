@@ -179,7 +179,10 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
             <div id="r-score-section" style="margin:14px 0;padding:12px;background:#f8f4ff;border-radius:8px;display:none;">
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
                 <span style="font-size:13px;font-weight:600;color:#7c3aed;">適合度スコア</span>
-                <span id="r-score" style="font-size:18px;font-weight:700;color:#7c3aed;">0%</span>
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <span id="r-score" style="font-size:18px;font-weight:700;color:#7c3aed;">0%</span>
+                  <span id="r-stars" style="font-size:16px;color:#fbbf24;">★★★★☆</span>
+                </div>
               </div>
               <div style="width:100%;height:8px;background:#e9d5ff;border-radius:4px;overflow:hidden;">
                 <div id="r-score-bar" style="height:100%;background:#7c3aed;width:0%;transition:width .3s;"></div>
@@ -203,6 +206,12 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
               <p style="font-size:12px;color:#888;margin-bottom:8px;">この結果をシェアする</p>
               <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;"></div>
             </div>
+            <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+              <button style="background:#f3f4f6;border:1px solid #d1d5db;color:#374151;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;min-height:44px;flex:1;min-width:120px;transition:background .15s;" onclick="copyResultText();" title="診断結果をテキスト形式でコピー">📋 結果をコピー</button>
+              <button style="background:#f3f4f6;border:1px solid #d1d5db;color:#374151;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;min-height:44px;flex:1;min-width:120px;transition:background .15s;" onclick="window.print();" title="診断結果を印刷">📄 印刷する</button>
+              <button style="background:#f3f4f6;border:1px solid #d1d5db;color:#374151;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;min-height:44px;flex:1;min-width:120px;transition:background .15s;" onclick="downloadCSV();" title="結果をCSV形式でダウンロード">📥 ダウンロード</button>
+            </div>
+            <div id="toast" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:12px 24px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .3s;z-index:9999;pointer-events:none;">コピーしました</div>
             <button class="btn" style="margin-top:16px;" onclick="resetQuiz()">もう一度診断する</button>
           </div>
         </div>
@@ -567,7 +576,73 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
           split5: '5〜6分割法（週5〜6日）',
         }[splitKey];
         showResultFromData(entry.answers, splitKey, titleText);
+        showToast('📅 診断履歴から復元しました');
       }
+    }
+
+    // 星評価表示（スコアから5段階評価を生成）
+    function getStarRating(score) {
+      if (score >= 90) return '★★★★★';
+      if (score >= 75) return '★★★★☆';
+      if (score >= 60) return '★★★☆☆';
+      if (score >= 45) return '★★☆☆☆';
+      return '★☆☆☆☆';
+    }
+
+    // トースト表示関数
+    function showToast(message, duration = 2000) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.style.opacity = '1';
+      setTimeout(() => { toast.style.opacity = '0'; }, duration);
+    }
+
+    // テキストコピー関数
+    function copyResultText() {
+      const title = document.getElementById('r-title').textContent;
+      const score = document.getElementById('r-score').textContent;
+      const desc = document.getElementById('r-desc').textContent;
+      const text = `${title}\n適合度スコア: ${score}\n\n${desc}`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('📋 結果をコピーしました');
+      }).catch(() => {
+        alert('コピーに失敗しました。もう一度試してください。');
+      });
+    }
+
+    // CSV形式でダウンロード関数
+    function downloadCSV() {
+      const title = document.getElementById('r-title').textContent.replace(/[^ァ-ヴー一-龠々〆〤ぁ-ん0-9]/g, '');
+      const score = document.getElementById('r-score').textContent;
+      const answers = ans.map(a => a.idx);
+      const goals = ['筋肥大', '減量', '健康維持', '競技向上'];
+      const focus = ['全身バランス', '上半身重視', '下半身重視', '体幹重視'];
+      const days = ['週2日', '週3日', '週4日', '週5日以上'];
+      const levels = ['初心者', '中級者', '上級者', '元アスリート'];
+      const time = ['30分以内', '30-60分', '60-90分', '90分以上'];
+
+      const csv = [
+        ['項目', '回答'],
+        ['診断日時', new Date().toLocaleString('ja-JP')],
+        ['診断結果', document.getElementById('r-title').textContent],
+        ['適合度スコア', score],
+        ['', ''],
+        ['質問1: 筋トレの目的', goals[answers[0]]],
+        ['質問2: 週の運動日数', days[answers[1]]],
+        ['質問3: トレーニング時間', time[answers[2]]],
+        ['質問4: 経験レベル', levels[answers[3]]],
+        ['質問5: 重視部位', focus[answers[4]]],
+      ].map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const now = new Date();
+      const dateStr = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+      link.setAttribute('href', URL.createObjectURL(blob));
+      link.setAttribute('download', `筋トレ分割法診断_${dateStr}.csv`);
+      link.click();
+      showToast('📥 ダウンロードを開始しました');
     }
 
     // Chart.js 可視化関数
@@ -595,58 +670,76 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
 
       // 比較チャート
       const scores = getRecommendScores(days, level, time);
-      const ctx1 = document.getElementById('comparisonChart').getContext('2d');
-      if (chartInstances.comparison) chartInstances.comparison.destroy();
-      chartInstances.comparison = new Chart(ctx1, {
-        type: 'bar',
-        data: {
-          labels: ['全身法', '上下分割', 'PPL', '4分割', '5〜6分割'],
-          datasets: [{
-            label: 'おすすめ度',
-            data: [scores.fullbody, scores.upperlower, scores.ppl, scores.split4, scores.split5],
-            backgroundColor: ['#7c3aed', '#c084fc', '#d8b4fe', '#e9d5ff', '#ede9fe'],
-            borderRadius: 6,
-            barThickness: 24
-          }]
-        },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: { x: { max: 100, beginAtZero: true } }
-        }
-      });
+      const ctx1 = document.getElementById('comparisonChart');
+      if (!ctx1) return;
+
+      if (chartInstances.comparison) {
+        try { chartInstances.comparison.destroy(); } catch (e) {}
+      }
+
+      try {
+        chartInstances.comparison = new Chart(ctx1.getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['全身法', '上下分割', 'PPL', '4分割', '5〜6分割'],
+            datasets: [{
+              label: 'おすすめ度',
+              data: [scores.fullbody, scores.upperlower, scores.ppl, scores.split4, scores.split5],
+              backgroundColor: ['#7c3aed', '#c084fc', '#d8b4fe', '#e9d5ff', '#ede9fe'],
+              borderRadius: 6,
+              barThickness: 24
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { x: { max: 100, beginAtZero: true } }
+          }
+        });
+      } catch (e) {
+        console.warn('比較チャート描画エラー:', e);
+      }
 
       // レーダーチャート
-      const ctx2 = document.getElementById('radarChart').getContext('2d');
-      if (chartInstances.radar) chartInstances.radar.destroy();
-      chartInstances.radar = new Chart(ctx2, {
-        type: 'radar',
-        data: {
-          labels: ['筋肥大', '週の日数', 'トレーニング時間', '経験レベル', '重視部位'],
-          datasets: [{
-            label: 'スコア',
-            data: [
-              goal === 0 ? 9 : (goal === 1 ? 7 : 8),
-              (days + 1) * 2.5,
-              (time + 1) * 2.5,
-              (level + 1) * 2.5,
-              focus === 0 ? 8 : 9
-            ],
-            borderColor: '#7c3aed',
-            backgroundColor: '#7c3aed22',
-            fill: true,
-            tension: 0.3
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } },
-          scales: { r: { max: 10, beginAtZero: true } }
-        }
-      });
+      const ctx2 = document.getElementById('radarChart');
+      if (!ctx2) return;
+
+      if (chartInstances.radar) {
+        try { chartInstances.radar.destroy(); } catch (e) {}
+      }
+
+      try {
+        chartInstances.radar = new Chart(ctx2.getContext('2d'), {
+          type: 'radar',
+          data: {
+            labels: ['筋肥大', '週の日数', 'トレーニング時間', '経験レベル', '重視部位'],
+            datasets: [{
+              label: 'スコア',
+              data: [
+                goal === 0 ? 9 : (goal === 1 ? 7 : 8),
+                (days + 1) * 2.5,
+                (time + 1) * 2.5,
+                (level + 1) * 2.5,
+                focus === 0 ? 8 : 9
+              ],
+              borderColor: '#7c3aed',
+              backgroundColor: '#7c3aed22',
+              fill: true,
+              tension: 0.3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom' } },
+            scales: { r: { max: 10, beginAtZero: true } }
+          }
+        });
+      } catch (e) {
+        console.warn('レーダーチャート描画エラー:', e);
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -707,17 +800,23 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       const focus = answers[4];
       const emoji = { fullbody:'🔰', upperlower:'✂️', ppl:'🔥', split4:'⚡', split5:'🏆' }[splitKey];
       const score = calcScore(days, level, time);
+      const stars = getStarRating(score);
 
       document.getElementById('r-tags').innerHTML =
         `<span class="result-tag goal-tag">${GOALS[goal]}</span><span class="result-tag">${FOCUS[focus]}</span><span class="result-tag">${['週2日','週3日','週4日','週5日以上'][days]}</span>`;
       document.getElementById('r-title').textContent = emoji + ' ' + titleText;
       document.getElementById('r-desc').textContent = buildDesc(splitKey, goal, focus, time);
       document.getElementById('r-score').textContent = score + '%';
+      document.getElementById('r-stars').textContent = stars;
       document.getElementById('r-score-bar').style.width = score + '%';
       document.getElementById('r-score-section').style.display = 'block';
       document.getElementById('r-schedule').innerHTML = buildScheduleHTML(splitKey);
       document.getElementById('r-share').querySelector('div').innerHTML = buildShareHTML(titleText);
-      drawCharts(days, level, time, goal, focus);
+      try {
+        drawCharts(days, level, time, goal, focus);
+      } catch (e) {
+        console.warn('チャート描画エラー:', e);
+      }
       document.getElementById('result').classList.add('show');
       document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
