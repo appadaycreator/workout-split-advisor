@@ -1,0 +1,73 @@
+Fetch this design file, read its readme, and implement the relevant aspects of the design. https://api.anthropic.com/v1/design/h/9tV1hZ1ykpfWS5VKuwtlEg?open_file=index.html
+Implement: ## 指示
+ClaudeDesignによって作成されたデザインを効果的に反映してほしい。
+
+**必ず最初に以下のデザイン参照画像を Read tool で読み込み、配色・レイアウト・フォント・セクション構成を視覚的に把握してから実装を開始してください:**
+- （LPページ全体デザイン）
+- （サービスページデザイン）
+
+- LPページとサービスページのデザインを実際のWebサービスに反映する。
+- **LPページは必ず `lp/index.html` として新規作成すること**（ディレクトリが存在しない場合は `mkdir lp` で作成）
+- サービスページは既存の / を更新。ユーザの利用動線を優先にしつつデザイン変更して。
+- コンテンツの目的に合わせて良いが、PCでもモバイルでも見れるように調整してほしい。
+- 全体のトップページのサービスページへのリンクは、LPページのURL（/lp/）に変更する
+- 今回の新デザイン（LPページのテーマカラーや素材・文字フォント・画像など）を該当既存サービスの全ページに刷新すること
+
+## ⚠️ 作業スコープ（必ず守ること）
+
+**読み込み・編集するファイルはこれだけ：**
+- `index.html`（サービスページ）
+- `lp/index.html`（LPページ・存在しない場合は新規作成）
+- 既存の `.css` ファイル（存在する場合のみ）
+
+**それ以外のファイル（contact.html, privacy-policy.html, terms.html, usage.html 等）は読まない・触らない。**
+ディレクトリ探索・ファイル一覧取得も不要。上記ファイルを直接編集すること。
+
+## ⚠️ 必須：実装完了後に必ず以下を実行すること（ローカルサーバーテストは不要）
+
+```bash
+git add -A
+git commit -m "Apply: design update with LP page"
+git push origin main
+```
+
+**git push origin main を実行してから完了とすること。push 完了のログを確認すること。**
+ローカルHTTPサーバーでのテストは不要。push が完了した時点で作業完了。
+
+## Claude Design プロジェクト
+
+
+Claude Design で生成されたコンポーネント（JSX・CSS）やプロトタイプの構成・スタイルを参考に実装すること。
+
+## デザイン参照画像（ローカル）
+- LP全体デザイン:      
+- サービスページデザイン: 
+- アイコン素材シート:   
+- 分割済みアイコン:    /Users/masayukitokunaga/workspace/30service/workout-split-advisor/assets/icons/split
+
+## 制約
+- GTM・GA4・AdSenseタグは変更しない
+- アフィリエイトリンクは変更しない
+- コアJSロジック（診断・計算ロジック）は変更しない
+
+## 対象プロジェクト
+302 筋トレ分割法診断 workout-split-advisor https://appadaycreator.com/workout-split-advisor/
+/Users/masayukitokunaga/workspace/30service/workout-split-advisor/
+
+## ②デザイン改善要約（反映すること）
+SUMMARY_JSON:{"a":["回答内容の改善提案AI機能追加（現在は診断のみ）","説明パターン（初転職/キャリアチェンジなど）の動的追加","業界別・職種別の頻出質問パターンDB拡充"],"b":["SNSシェア機能で診断結果の拡散（「わたしの診断結果」）","もう一度診断ボタン・リセット機能の明確化","回答例のワンクリックコピー機能"],"d":["回答例の成功パターン・失敗パターン対比表示","転職市場トレンド情報の挿入（2026年版頻出質問）","モバイル最適化の強化（体験速度と入力補助）"],"seo_h1":"職種・経験別の面接質問診断【無料・入力3分】","seo_meta":"職種・経験年数・転職理由から無料で面接の頻出質問とベストな回答例を自動診断。登録不要・スマホ対応で転職準備をサポート。","forbidden":["GTM-TXQGZRF9","G-ZDPNYD2875","ca-pub-8427583028015858","gtag","getResult","startQuiz","renderQ","answer","showResult","drawScoreChart","saveResult","getStorageHistory","loadHistory","showHistory","closeHistory","selectHistory","showResultPage","clearHistory","printResult","copyResult"],"design_tokens":{"primary":"#3B82F6","accent":"#10B981","font":"sans-serif","mood":"modern","cta":"診断を始める"}}
+
+## ブランドカラー（必ずこの配色でCSSを実装すること）
+  - メインカラー: #3B82F6（ボタン・見出し・強調要素に使用）
+  - アクセントカラー: #10B981（CTA・ハイライトに使用）
+  - フォント: sans-serif
+  - CTAボタン文言: 「診断を始める」
+
+## 現在のindex.htmlの構成情報（事前読み込み済み・tool callでのファイル読み込み不要）
+<title>筋トレ分割法診断【無料】あなたに最適な分割法・週間メニューを提案</title>
+<meta name="description" content="目的・週の運動頻度・経験から最適な筋トレ分割法と具体的な週間メニューを1分で診断。全身法・上下分割・PPL分割など5パターンから提案">
+<!-- GTM: GTM-TXQGZRF9 -->
+<!-- AdSense: ca-pub-8427583028015858 -->
+<!-- Affiliate A8: a8.net/svt/ejp?a8mat=4B3WJ7+18PTPM+1O96+699KI -->
+<!-- JS functions: getSplitKey, buildDesc, buildScheduleHTML, buildShareHTML, saveDiagnosis, loadHistory, clearHistory, displayHistory, toggleHistory, restoreDiagnosis, getStarRating, showToast, copyResultText, downloadCSV, calcScore, getRecommendScores, drawCharts, startQuiz, resetQuiz, renderQ, answer, goBack, showResultFromData, showResult -->
+<h1>筋トレ分割法診断</h1>
